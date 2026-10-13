@@ -2,26 +2,110 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculateur CO2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            max-width: 420px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #1b4332;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: #2d6a4f;
+        }
+
+        button {
+            width: 100%;
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1b4332;
+        }
+    </style>
 </head>
 <body>
-    <h1>🌱 Calculateur d'empreinte CO2</h1>
 
-    <form action="/calculer" method="POST">
-        <!-- Champ 1 : Distance -->
-        <label for="distance">Distance parcourue (en km) :</label><br>
-        <input type="number" id="distance" name="distance" step="0.1" required><br><br>
+    <div class="container">
+        <h1>🌱 Calculateur d'empreinte CO₂</h1>
 
-        <!-- Champ 2 : Moyen de transport -->
-        <label for="transport">Moyen de transport :</label><br>
-        <select id="transport" name="transport">
-            <option value="voiture">Voiture</option>
-            <option value="train">Train</option>
-            <option value="avion">Avion</option>
-        </select><br><br>
+        <form action="/calculer" method="POST">
+            <div class="form-group">
+                <label for="distance">Distance (en km)</label>
+                <input type="number" id="distance" name="distance" step="0.1" placeholder="Ex: 120" required>
+            </div>
 
-        <!-- Bouton de validation -->
-        <button type="submit">Calculer l'impact</button>
-    </form>
+            <div class="form-group">
+                <label for="transport">Moyen de transport</label>
+                <select id="transport" name="transport">
+                    <option value="voiture">🚗 Voiture</option>
+                    <option value="train">🚆 Train</option>
+                    <option value="avion">✈️ Avion</option>
+                </select>
+            </div>
+
+            <button type="submit">Calculer l'impact</button>
+        </form>
+    </div>
+
 </body>
 </html>
