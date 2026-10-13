@@ -2,10 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Site Test</title>
+    <title>Calculateur CO2</title>
 </head>
 <body>
-    <h1>🚀 Bravo, ton site fonctionne !</h1>
-    <p>Cette page est affichée via Flask et Render.</p>
+    <h1>🌱 Calculateur d'empreinte CO2</h1>
+
+    <form action="/calculer" method="POST">
+        <!-- Champ 1 : Distance -->
+        <label for="distance">Distance parcourue (en km) :</label><br>
+        <input type="number" id="distance" name="distance" step="0.1" required><br><br>
+
+        <!-- Champ 2 : Moyen de transport -->
+        <label for="transport">Moyen de transport :</label><br>
+        <select id="transport" name="transport">
+            <option value="voiture">Voiture</option>
+            <option value="train">Train</option>
+            <option value="avion">Avion</option>
+        </select><br><br>
+
+        <!-- Bouton de validation -->
+        <button type="submit">Calculer l'impact</button>
+    </form>
 </body>
 </html>
